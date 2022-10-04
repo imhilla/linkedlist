@@ -30,6 +30,20 @@ function insertAfterANode(prev_node, new_data) {
   prev_node.next = new_node
 }
 
+function append(new_data) {
+  var new_node = new Node(new_data)
+  if (head == null) {
+    head = new Node(new_data)
+    return
+  }
+  new_node.next = null
+  var last = head
+  while (last.next !== null) {
+    last = last.next
+  }
+  last.next = new_node
+}
+
 var head = new Node(1)
 var second = new Node(2)
 var third = new Node(3)
@@ -37,5 +51,6 @@ var third = new Node(3)
 head.next = second
 second.next = third
 pushFront(45)
+append(700)
 console.log(head.next.data, 'head')
 printList()
